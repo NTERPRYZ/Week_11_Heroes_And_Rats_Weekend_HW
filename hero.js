@@ -9,8 +9,16 @@ Hero.prototype.talk = function () {
   return `I am ${this.name}`;
 };
 
-Hero.prototype.isFavFood = function (food) {
-  return food.name === this.favFood ? true : false;
+Hero.prototype.isFaveFood = function (food) {
+  return food.name === this.faveFood ? true : false;
+};
+
+Hero.prototype.eat = function (food) {
+  if(this.isFaveFood(food)){
+    this.health += food.moreReplenish()
+  }else{
+    this.health += food.replenish
+  }
 };
 
 module.exports = Hero;
