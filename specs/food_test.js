@@ -2,7 +2,8 @@ const assert = require('assert');
 const Food = require('../hero.js');
 
 describe('food test', function(){
-  let food
+  let food1
+  let food2
 })
 
 beforeEach(function(){

@@ -1,8 +1,8 @@
 const Hero  = function(name, faveFood){
-  this.name = name;
+  this.name     = name;
   this.faveFood = faveFood;
-  this.health = 100;
-  this.tasks = [];
+  this.health   = 100;
+  this.tasks    = [];
 }
 
 Hero.prototype.talk = function () {
@@ -20,5 +20,15 @@ Hero.prototype.eat = function (food) {
     this.health += food.replenish
   }
 };
+
+Hero.prototype.addTask = function(task){
+  this.tasks.push(task)
+};
+
+Hero.prototype.sortTasksByDifficulty = function(task){
+  this.tasks.sort(task)
+}
+
+
 
 module.exports = Hero;

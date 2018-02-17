@@ -6,16 +6,20 @@ const Food = require('../food.js');
 describe('hero test', function(){
   let hero1;
   let hero2;
+
   let food1;
   let food2;
+
   let task1;
   let task2;
 
   beforeEach(function(){
     hero1 = new Hero("Robert", "Pizza")
     hero2 = new Hero("Laura", "Pizza")
+
     food1 = new Food("Burger", 10)
     food2 = new Food("Pizza", 20)
+
     task1 = new Task("Hoovering", 5, 3, food1)
     task2 = new Task("Dishes", 10, 10, food1)
 
@@ -48,6 +52,13 @@ it('should be able to eat', function(){
 
 it('should be able to eat fave food', function(){
   assert.strictEqual(hero1.isFaveFood(food2), true)
+})
+
+it('should be able to add tasks', function(){
+  hero1.addTask(task1)
+  hero1.addTask(task2)
+  console.log("task array", hero1.tasks);
+  assert.strictEqual(hero1.tasks.length, 2)
 })
 
 });

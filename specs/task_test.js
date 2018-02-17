@@ -3,12 +3,17 @@ const Task = require('../task.js');
 const Food = require('../food.js')
 
 describe('task test', function (){
-  let task
+  let food1
+  let food2
+
+  let task1
+  let task2
 })
 
 beforeEach(function(){
   food1 = new Food("Burger", 10)
   food2 = new Food("Pizza", 20)
+
   task1 = new Task("Hoovering", 5, 3, food1)
   task2 = new Task("Dishes", 10, 10, food1)
 })

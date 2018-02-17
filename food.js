@@ -1,7 +1,7 @@
 const Food = function(name, replenish){
-  this.name = name;
-  this.replenish = replenish;
-  this.poison = false;
+  this.name       = name;
+  this.replenish  = replenish;
+  this.poison     = false;
 }
 
 Food.prototype.moreReplenish = function(){
