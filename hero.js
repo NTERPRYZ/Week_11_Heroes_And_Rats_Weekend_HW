@@ -25,8 +25,45 @@ Hero.prototype.addTask = function(task){
   this.tasks.push(task)
 };
 
-Hero.prototype.sortTasksByDifficulty = function(task){
-  this.tasks.sort(task)
+Hero.prototype.sortFunctionAscending = function (sortByType) {
+  return function(first, second){
+    switch (sortByType) {
+      case 'difficulty' :
+        return first.difficulty - second.difficulty;
+        break;
+      case 'urgency' :
+        return first.urgency - second.urgency;
+        break;
+      case 'reward' :
+        return first.reward.replenish - second.reward.replenish;
+        break;
+    }
+  }
+};
+
+Hero.prototype.sortFunctionDescending = function (sortByType) {
+  return function(first, second){
+    switch (sortByType) {
+      case 'difficulty' :
+        return second.difficulty - first.difficulty;
+        break;
+      case 'urgency' :
+        return second.urgency - first.urgency;
+        break;
+      case 'reward' :
+        return second.reward.replenish - first.reward.replenish;
+        break;
+    }
+  }
+};
+
+
+Hero.prototype.sortTasksAscending = function(type){
+  return this.tasks.sort(this.sortFunctionAscending(type))
+}
+
+Hero.prototype.sortTasksDescending = function(type){
+  return this.tasks.sort(this.sortFunctionDescending(type))
 }
 
 

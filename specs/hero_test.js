@@ -19,9 +19,13 @@ describe('hero test', function(){
 
     food1 = new Food("Burger", 10)
     food2 = new Food("Pizza", 20)
+    food3 = new Food("Chocolate", 50)
+    food4 = new Food("Noodles", 5)
 
     task1 = new Task("Hoovering", 5, 3, food1)
-    task2 = new Task("Dishes", 10, 10, food1)
+    task2 = new Task("Dishes", 10, 10, food2)
+    task3 = new Task("Washing Car", 15, 1, food3)
+    task4 = new Task("Make Sushi", 20, 2, food4)
 
   })
 
@@ -57,8 +61,68 @@ it('should be able to eat fave food', function(){
 it('should be able to add tasks', function(){
   hero1.addTask(task1)
   hero1.addTask(task2)
-  console.log("task array", hero1.tasks);
   assert.strictEqual(hero1.tasks.length, 2)
 })
+
+it('should be able to sort tasks by difficulty ASCENDING', function(){
+hero1.addTask(task1)
+hero1.addTask(task2)
+hero1.addTask(task3)
+hero1.addTask(task4)
+hero1.sortTasksAscending('difficulty')
+assert.strictEqual(hero1.tasks[0], task1)
+assert.strictEqual(hero1.tasks[3], task4)
+})
+
+it('should be able to sort tasks by urgency ASCENDING', function(){
+hero1.addTask(task1)
+hero1.addTask(task2)
+hero1.addTask(task3)
+hero1.addTask(task4)
+hero1.sortTasksAscending('urgency')
+assert.strictEqual(hero1.tasks[0], task3)
+assert.strictEqual(hero1.tasks[3], task2)
+})
+
+it('should be able to sort tasks by reward ASCENDING', function(){
+hero1.addTask(task1)
+hero1.addTask(task2)
+hero1.addTask(task3)
+hero1.addTask(task4)
+hero1.sortTasksAscending('reward')
+assert.strictEqual(hero1.tasks[0], task4)
+assert.strictEqual(hero1.tasks[3], task3)
+})
+
+it('should be able to sort tasks by difficulty DESCENDING', function(){
+hero1.addTask(task1)
+hero1.addTask(task2)
+hero1.addTask(task3)
+hero1.addTask(task4)
+hero1.sortTasksDescending('difficulty')
+assert.strictEqual(hero1.tasks[0], task4)
+assert.strictEqual(hero1.tasks[3], task1)
+})
+
+it('should be able to sort tasks by urgency DESCENDING', function(){
+hero1.addTask(task1)
+hero1.addTask(task2)
+hero1.addTask(task3)
+hero1.addTask(task4)
+hero1.sortTasksDescending('urgency')
+assert.strictEqual(hero1.tasks[0], task2)
+assert.strictEqual(hero1.tasks[3], task3)
+})
+
+it('should be able to sort tasks by reward DESCENDING', function(){
+hero1.addTask(task1)
+hero1.addTask(task2)
+hero1.addTask(task3)
+hero1.addTask(task4)
+hero1.sortTasksDescending('reward')
+assert.strictEqual(hero1.tasks[0], task3)
+assert.strictEqual(hero1.tasks[3], task4)
+})
+
 
 });
